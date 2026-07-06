@@ -52,15 +52,11 @@ public class Locators {
 		
 //		8. css selector
 		driver.findElement(By.cssSelector("label[for='wpforms-161-field_1']"));
-		
-		
-		
-		
-		
-		
-		
-		
-		
 	}
 
 }
+
+
+
+//  https://demo.guru99.com/test/newtours/register.php
+//  https://demo.guru99.com/test/delete_customer.php

@@ -3,10 +3,12 @@ package core;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class LoginScenario {
@@ -40,7 +42,20 @@ public class LoginScenario {
 		userName.clear();
 		userName.sendKeys("Admin");
 		
-		WebElement password = driver.findElement(By.name("password"));
+//		3. Fluent Wait:
+//		Timeout: 20 Sec -> Webdriver 20 sec wait
+//		Polling: 2 sec   -> Every 2 sec you have to check that element is present or not
+//		Ignore: NoSuchElementException
+		
+		FluentWait<WebDriver> fwait = new FluentWait<WebDriver>(driver)
+				.withTimeout(Duration.ofSeconds(20))
+				.pollingEvery(Duration.ofSeconds(2))
+				.ignoring(NoSuchElementException.class);
+		
+//		driver (or d) -> Input parameter (WebDriver)
+//		->   - Lambda operator ("goes to")
+		WebElement password = fwait.until(
+				d -> d.findElement(By.name("password")));
 		password.clear();
 		password.sendKeys("admin123");
 		

@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 
 public class DemoTest {
@@ -24,6 +25,9 @@ public class DemoTest {
 		
 		WebElement submit_Button = driver.findElement(By.className(""));
 		submit_Button.click();
+		
+		Assert.assertEquals("Practice test automation", driver.getTitle(), "Title not matched");
+		
   }
   
   @Test

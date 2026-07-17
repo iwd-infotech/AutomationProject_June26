@@ -1,18 +1,27 @@
-package parallel;
+package para;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-public class LoginClass {
+public class Parametrization {
 
+	WebDriver driver;
+//	String browser = "firefox";
+
+	@Parameters({"browser"})
 	@Test
-	public void login() {
+	public void paramter(String browser) {
 
-		WebDriver driver = new FirefoxDriver();
+		if (browser.equals("chrome")) {
+			driver = new ChromeDriver();
+		} else if (browser.equals("firefox")) {
+			driver = new FirefoxDriver();
+		}
 		driver.get("https://practicetestautomation.com/practice-test-login/");
 		driver.manage().window().maximize();
 
@@ -26,6 +35,7 @@ public class LoginClass {
 
 		WebElement submit_Button = driver.findElement(By.className(""));
 		submit_Button.click();
+
 	}
 
 }

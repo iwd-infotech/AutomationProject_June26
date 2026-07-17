@@ -8,7 +8,7 @@ public class ParallelMethods {
 	
 	@Test
 	public void login() {
-		System.out.println("Login Test");
+		System.out.println("Login Test: " +Thread.currentThread().getName());
 		WebDriver driver = new ChromeDriver();
 		driver.get("https://practicetestautomation.com/practice-test-login/");
 		driver.manage().window().maximize();
@@ -17,7 +17,7 @@ public class ParallelMethods {
 	
 	@Test
 	public void dashboard() {
-		System.out.println("Dashboard Test");
+		System.out.println("Dashboard Test: " +Thread.currentThread().getName());
 		WebDriver driver = new ChromeDriver();
 		driver.get("https://practicetestautomation.com/practice-test-login/");
 		driver.manage().window().maximize();
@@ -26,7 +26,7 @@ public class ParallelMethods {
 	
 	@Test
 	public void search() {
-		System.out.println("Search Test");
+		System.out.println("Search Test: " +Thread.currentThread().getId());
 		WebDriver driver = new ChromeDriver();
 		driver.get("https://practicetestautomation.com/practice-test-login/");
 		driver.manage().window().maximize();
@@ -35,7 +35,7 @@ public class ParallelMethods {
 	
 	@Test
 	public void payment() {
-		System.out.println("PAyment Test");
+		System.out.println("PAyment Test: " +Thread.currentThread().getId());
 		WebDriver driver = new ChromeDriver();
 		driver.get("https://practicetestautomation.com/practice-test-login/");
 		driver.manage().window().maximize();
@@ -44,7 +44,7 @@ public class ParallelMethods {
 	
 	@Test
 	public void demo() {
-		System.out.println("Demo Test");
+		System.out.println("Demo Test: " +Thread.currentThread().getId());
 		WebDriver driver = new ChromeDriver();
 		driver.get("https://practicetestautomation.com/practice-test-login/");
 		driver.manage().window().maximize();
